@@ -1,0 +1,34 @@
+.messagedelete {
+  width: 100px;
+  margin-top: 60px;
+}
+.messages {
+  width: 60%;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.card-text {
+  text-align: initial;
+  margin-left: 50px;
+}
+.card-header {
+  display: flex;
+}
+h4 {
+  text-align: initial;
+  margin-left: 10px;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.mailPhone {
+  text-align: initial;
+  margin-left: 20px;
+  font-size: small;
+  color: gray;
+}
+h5 {
+  color: gray;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}

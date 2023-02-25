@@ -1,0 +1,10 @@
+.spin {
+  margin-left: 40%;
+  margin-top: 100px;
+  position: absolute;
+  z-index: 2;
+  opacity: 60%;
+}
+.clipload {
+  margin: 10px;
+}

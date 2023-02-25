@@ -1,0 +1,12 @@
+.imgPitch {
+  width: 400px;
+  height: 300px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  border-radius: 10px;
+  filter: brightness(80%);
+}
+.Carousel {
+  background-color: #f5f5f5;
+  padding-top: 20px;
+}

@@ -1,0 +1,38 @@
+@import "~mdb-ui-kit/css/mdb.min.css";
+
+.post {
+  width: 60%;
+  margin: auto;
+  margin-top: 20px;
+}
+.card-img {
+  width: 90%;
+  margin: auto;
+}
+
+.header {
+  display: flex;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.fa-trash {
+  margin-left: 700px;
+  color: #dc3546;
+}
+.fa-edit {
+  margin-left: 650px;
+  color: #7c7c7c;
+}
+
+.descriptionModal {
+  margin-top: 20px;
+}
+.owner {
+  margin-left: 30px;
+  margin-top: 10px;
+}
+.title {
+  margin-left: 50px;
+}

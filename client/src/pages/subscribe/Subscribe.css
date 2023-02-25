@@ -1,0 +1,47 @@
+.subscribepage {
+  width: 25%;
+  margin-left: 850px;
+  margin-top: 80px;
+  margin-bottom: 850px;
+}
+.subscribeInput {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.subscribeimg {
+  position: absolute;
+  width: 700px;
+  top: 40px;
+  margin-left: 50px;
+  opacity: 90%;
+}
+
+.paypal {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.paypalbutton {
+  width: 600px;
+  height: 50px;
+}
+
+.perfect-pitch-section {
+  background-color: #f5f5f5;
+  padding: 50px;
+  text-align: center;
+}
+
+.perfect-pitch-section__title {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: rgba(0, 0, 0, 0.849);
+  font-weight: bold;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.perfect-pitch-section__text {
+  font-size: 18px;
+  margin-bottom: 10px;
+}

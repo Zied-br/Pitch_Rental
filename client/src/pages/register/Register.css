@@ -1,0 +1,36 @@
+@import "~mdb-ui-kit/css/mdb.min.css";
+
+.Register {
+  width: 21%;
+  margin-left: 850px;
+}
+.btn-block {
+  width: 40%;
+  margin: auto;
+}
+h1 {
+  text-align: center;
+  margin: auto;
+  padding-bottom: 30px;
+  color: rgb(59, 113, 203);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-shadow: 1px 1px rgba(128, 128, 128, 0.616);
+}
+.fas {
+  margin-left: 250px;
+  margin-top: 10px;
+  position: absolute;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 90%;
+}
+.upform {
+  margin-top: 20px;
+}
+.registerimg {
+  position: absolute;
+  width: 700px;
+  top: 40px;
+  margin-left: 50px;
+  opacity: 90%;
+}

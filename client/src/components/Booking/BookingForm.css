@@ -1,0 +1,23 @@
+.bookingForm {
+  margin-bottom: 150px;
+}
+
+.input-group > .form-control {
+  height: 38px;
+}
+.datePicker {
+  height: 38px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  opacity: 0%;
+}
+
+.farbooking {
+  color: rgb(59, 113, 203);
+
+  position: absolute;
+
+  margin-top: -3px;
+  cursor: pointer;
+}
