@@ -6,8 +6,12 @@ import { MDBInput } from "mdb-react-ui-kit";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/Actions/authActions";
 import loginimg from "../../helpers/images/loginimg.png";
+import Alert from "../../components/Alert/Alert";
 
 const Login = () => {
+  //alert Message
+  const [error, setError] = useState("");
+
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
@@ -25,11 +29,6 @@ const Login = () => {
     setInfo({ ...info, [e.target.name]: e.target.value });
   };
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    dispatch(login(info));
-  };
-
   //authorisation
   const auth = useSelector((state) => state.authReducer);
 
@@ -39,6 +38,17 @@ const Login = () => {
       navigate("/profile");
     }
   }, [navigate, auth.isAuth]);
+  const handleLogin = (e) => {
+    e.preventDefault();
+    dispatch(login(info));
+    if (auth.errors) {
+      if (!info.email || !info.password) {
+        setError("Please fill in all fields");
+        return;
+      }
+      setError("Invalid email or password");
+    }
+  };
 
   return (
     <div>
@@ -103,6 +113,7 @@ const Login = () => {
           >
             Sign in
           </button>
+          {auth.isAuth === false && error ? <Alert message={error} /> : null}
 
           {/* <!-- Register buttons --> */}
           <div className="text-center">

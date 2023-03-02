@@ -23,6 +23,12 @@ const Profile = () => {
   const myPosts = useSelector((state) => state.myPostsReducer.myPosts);
   const load = useSelector((state) => state.authReducer.isLoading);
 
+  //spinner
+  useEffect(() => {
+    if (load) {
+      setTimeout(() => {}, 1500);
+    }
+  }, [load]);
   return (
     <div>
       {load && <Spinners></Spinners>}

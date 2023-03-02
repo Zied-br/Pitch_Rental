@@ -68,21 +68,25 @@ const userCtrl = {
   login: async (req, res) => {
     try {
       const errors = validationResult(req);
-      if (!errors.isEmpty())
-        return res.status(400).json({ error: errors.mapped() });
+      if (!errors.isEmpty()) {
+        const errorMessages = errors.array().map((error) => error.msg);
+        return res.status(400).json({ errors: errorMessages });
+      }
 
       const { email, password } = req.body;
       const user = await User.findOne({ email });
       if (!user)
         return res
           .status(400)
-          .json({ msg: `User doesn't exist .You have to register before !!` });
+          .json({
+            errors: [`User doesn't exist. You have to register before!!`],
+          });
 
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch)
         return res
           .status(400)
-          .json({ msg: `Please enter a valid password !!` });
+          .json({ errors: [`Please enter a valid password!!`] });
 
       const payload = {
         id: user._id,
@@ -92,7 +96,7 @@ const userCtrl = {
       const accessToken = await jwt.sign(payload, process.env.ACCESS_TOKEN);
       res.json({ accessToken, role: user.role, name: user.firstName });
     } catch (err) {
-      return res.status(500).json({ msg: err.message });
+      return res.status(500).json({ errors: [err.message] });
     }
   },
 

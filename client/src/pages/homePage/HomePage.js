@@ -6,11 +6,15 @@ import { Card } from "react-bootstrap";
 import ImageGroup from "../../components/imageGroup/ImageGroup";
 
 const HomePage = () => {
+  function handleVideoEnded(event) {
+    event.target.currentTime = 0;
+    event.target.play();
+  }
   return (
     <div>
       <img className="Pitch" src={pitch} alt="pitch" />
       <div className="headerhome">
-        <video autoPlay muted>
+        <video autoPlay muted onEnded={handleVideoEnded}>
           <source src={HomePageVideo} type="video/mp4"></source>
         </video>
 

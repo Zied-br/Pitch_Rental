@@ -1,4 +1,5 @@
 import {
+  ADD_NEW_BOOKING_FAILED,
   GET_BOOKINGS_FAILED,
   GET_BOOKINGS_REQUEST,
   GET_BOOKINGS_SUCCESS,
@@ -34,6 +35,11 @@ const bookingReducer = (state = initState, { type, payload }) => {
       return {
         ...state,
         bookings: [],
+      };
+    case ADD_NEW_BOOKING_FAILED:
+      return {
+        ...state,
+        errors: payload,
       };
     default:
       break;

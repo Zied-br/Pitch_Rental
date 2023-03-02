@@ -11,6 +11,7 @@ import {
   updateBooking,
 } from "../../redux/Actions/bookingActions";
 import { v4 as uuidv4 } from "uuid";
+import Alert from "../Alert/Alert";
 
 const BookingForm = () => {
   //Modal state for user code
@@ -53,7 +54,8 @@ const BookingForm = () => {
 
     setNewBooking({ squadName: "", start: "" });
     setStartDate(new Date());
-    setShow(true);
+
+    if (errs === null) setShow(true);
   };
 
   //deleteing
@@ -72,6 +74,7 @@ const BookingForm = () => {
   };
   //finding booking code for admin
   const bookings = useSelector((state) => state.bookingReducer.bookings);
+  const errs = useSelector((state) => state.bookingReducer.errors);
 
   const bookingCode = bookings
     .filter((elem) => elem.squadName === addBooking.squadName)
@@ -143,12 +146,11 @@ const BookingForm = () => {
             <i className="far farbooking fa-2x fa-calendar-check"></i>
 
             <DatePicker
-              className="datePicker "
+              className="datePicker"
               selected={startDate}
-              onChange={(date) => {
-                setStartDate(date);
-              }}
-            ></DatePicker>
+              onChange={(date) => setStartDate(date)}
+              minDate={new Date()}
+            />
           </div>
 
           <div className="col-12">
@@ -174,6 +176,7 @@ const BookingForm = () => {
               Booking
             </button>
           </div>
+
           <div className="col-12">
             <button
               type="submit"
@@ -216,6 +219,7 @@ const BookingForm = () => {
               Delete
             </button>
           </div>
+          {errs !== null && <Alert message={errs.errors} />}
         </form>
       </div>
     </div>

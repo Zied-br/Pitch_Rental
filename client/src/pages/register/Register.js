@@ -6,8 +6,11 @@ import { register } from "../../redux/Actions/authActions";
 import userImage from "../../helpers/images/user.png";
 import { useNavigate } from "react-router-dom";
 import registerimg from "../../helpers/images/register.png";
+import Alert from "../../components/Alert/Alert";
 
 const Register = () => {
+  //alert Message
+  const [error, setError] = useState("");
   //img reader
   const [selectedImg, setSelectedImg] = useState("");
   const handleChangeImg = (e) => {
@@ -43,6 +46,18 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     dispatch(register(regInfo));
+    if (
+      !regInfo.email ||
+      !regInfo.password ||
+      !regInfo.firstName ||
+      !regInfo.lastName ||
+      !regInfo.cinNumber ||
+      !regInfo.phoneNumber
+    ) {
+      setError("Please fill in all fields");
+      return;
+    }
+    setError("The CIN number and phone number must have exactly 8 digits");
   };
 
   const handleChange = (e) => {
@@ -194,7 +209,7 @@ const Register = () => {
           >
             Sign up
           </button>
-
+          {error && <Alert message={error} />}
           {/*   <!-- Register buttons --> */}
           <div className="text-center">
             <p>or sign up with:</p>

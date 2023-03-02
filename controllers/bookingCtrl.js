@@ -4,7 +4,13 @@ const bookingCtrl = {
   addBooking: async (req, res) => {
     try {
       const { squadName, start, code } = req.body;
-
+      const timinig = await Booking.findOne({ start });
+      if (timinig)
+        return res.status(400).json({
+          errors: [
+            `This time slot is already booked by another user. Please select a different time slot!!`,
+          ],
+        });
       const newBooking = new Booking({
         squadName,
         start,

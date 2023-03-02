@@ -28,7 +28,7 @@ export const login = (info) => async (dispatch) => {
     dispatch(getAllPosts());
     dispatch(getBookings());
   } catch (err) {
-    dispatch({ type: LOGIN_FAILED, payload: err.response.data.msg });
+    dispatch({ type: LOGIN_FAILED, payload: err.response.data });
   }
 };
 

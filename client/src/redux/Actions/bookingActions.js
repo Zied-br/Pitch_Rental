@@ -37,7 +37,7 @@ export const addNewBooking = (newBooking) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: ADD_NEW_BOOKING_FAILED,
-      payload: err.response.data.msg,
+      payload: err.response.data,
     });
   }
 };
