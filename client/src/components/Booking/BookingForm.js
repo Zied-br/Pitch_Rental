@@ -48,16 +48,6 @@ const BookingForm = () => {
     });
   }, [newBooking, startDate]);
 
-  const handleAddBooking = (e) => {
-    e.preventDefault();
-    dispatch(addNewBooking(addBooking));
-
-    setNewBooking({ squadName: "", start: "" });
-    setStartDate(new Date());
-
-    if (errs === null) setShow(true);
-  };
-
   //deleteing
   const handleDelete = (e) => {
     e.preventDefault();
@@ -79,6 +69,15 @@ const BookingForm = () => {
   const bookingCode = bookings
     .filter((elem) => elem.squadName === addBooking.squadName)
     .map((elem) => elem.code);
+
+  const handleAddBooking = (e) => {
+    e.preventDefault();
+    dispatch(addNewBooking(addBooking));
+
+    setNewBooking({ squadName: "", start: "" });
+    setStartDate(new Date());
+    errs && setShow(true);
+  };
 
   return (
     <div>

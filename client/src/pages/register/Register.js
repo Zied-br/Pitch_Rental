@@ -57,7 +57,8 @@ const Register = () => {
       setError("Please fill in all fields");
       return;
     }
-    setError("The CIN number and phone number must have exactly 8 digits");
+    if (regInfo.cinNumber.length !== 8 || regInfo.phoneNumber.length !== 8)
+      setError("The CIN number and phone number must have exactly 8 digits");
   };
 
   const handleChange = (e) => {

@@ -1,5 +1,7 @@
 import {
   ADD_NEW_BOOKING_FAILED,
+  ADD_NEW_BOOKING_REQUEST,
+  ADD_NEW_BOOKING_SUCCESS,
   GET_BOOKINGS_FAILED,
   GET_BOOKINGS_REQUEST,
   GET_BOOKINGS_SUCCESS,
@@ -13,7 +15,7 @@ const initState = {
 
 const bookingReducer = (state = initState, { type, payload }) => {
   switch (type) {
-    //Login Requests
+    //booking Requests
     case GET_BOOKINGS_REQUEST:
       return {
         ...state,
@@ -40,6 +42,16 @@ const bookingReducer = (state = initState, { type, payload }) => {
       return {
         ...state,
         errors: payload,
+      };
+    case ADD_NEW_BOOKING_REQUEST:
+      return {
+        ...state,
+        errors: null,
+      };
+    case ADD_NEW_BOOKING_SUCCESS:
+      return {
+        ...state,
+        errors: null,
       };
     default:
       break;
